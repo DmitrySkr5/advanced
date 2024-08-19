@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Work</title>
+</head>
+
+<body>
+    <script>
+        //Question 1
+        console.log("Question 1");
+        let grades = [55, 70, 89, 95, 77, 40, 50];
+        function checkGrades(arr) {
+            let newArr = [];
+            let avg = 0;
+            for (let i = 0; i < arr.length; i++) {
+                avg += arr[i];
+            }
+            avg /= arr.length;
+            console.log("Avg " + avg);
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[j] >= avg) newArr.push(arr[j]);
+            }
+
+            return newArr;
+        }
+        console.log(checkGrades(grades));
+
+        //Question 2
+        console.log("Question 2-1");
+
+        function updatePrices(arr) {
+            let pricesAfterDis = arr.map(function (item) {
+                return Number(item * 0.8).toFixed(2);
+            });
+            return pricesAfterDis;
+        }
+        console.log(updatePrices([10, 24, 30, 43, 50, 60]));
+
+        console.log("Question 2-2");
+
+        function upper(arr) {
+            let upperArr = arr.map(function (item) {
+                return item.toUpperCase();
+            });
+            return upperArr;
+        }
+        console.log(upper(["Dog", "Cat", "Rabbit"]));
+
+        //Question 3
+        console.log("Question 3-1");
+        let socials = ["Facebook", "Instagram", "Twitter", "Linkedin", "Tiktok", "Yandex"];
+
+        function checkSocials(arr) {
+            arr = arr.filter(function (social) {
+                return social.includes("e") && social.length >= 7;
+            });
+            return arr;
+        }
+        console.log(checkSocials(socials));
+
+        console.log("Question 3-2");
+
+        let numbersArray = [10, 9, 33, 20, 21, 7, 39, 40];
+        function checkThree(arr) {
+            arr = arr.filter(function (number) {
+                return number % 3 == 0;
+            });
+            return arr;
+        }
+        console.log(checkThree(numbersArray));
+
+        //Question 4
+        console.log("Question 4");
+
+        function firstSocial(arr) {
+            arr = arr.find(function (social) {
+                return social.includes("t");
+            });
+            return arr;
+        }
+        console.log(firstSocial(socials));
+        //Question 5
+        console.log("Question 5");
+        let fruits = ["banana", "melon", "kiwi", "orange", "pear", "apple", "cherry"];
+
+        function sortMoreFive(arr) {
+            let newArr = [];
+            arr.sort();
+            console.log(arr);
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].length >= 5) newArr.push(arr[i]);
+            }
+            return newArr;
+        }
+        console.log(sortMoreFive(fruits));
+
+        //Question 6
+        console.log("Question 6");
+        let students = ["Asher", "Miri", "Anat", "Moshe", "Avraham", "Sara"];
+
+        function removeItem(arr, student) {
+            let indexToRemove = arr.indexOf(student);
+            if (indexToRemove == -1) return false;
+            arr.splice(indexToRemove, 1);
+            return true;
+        }
+        console.log(removeItem(students, "David"));
+        console.log(students);
+        console.log(removeItem(students, "Anat"));
+        console.log(students);
+
+        //Question 7
+        console.log("Question 7");
+        let students1 = ["Asher", "Miri", "Anat", "Moshe", "Avraham", "Sara"];
+
+        console.log("Old names: " + students1);
+
+        function updateItem(arr, oldName, newName) {
+            let indexToUpdate = arr.indexOf(oldName);
+            if (indexToUpdate == -1) return false;
+            arr[indexToUpdate] = newName;
+            return true;
+        }
+        console.log(updateItem(students1, "Anat", "Daria"));
+        console.log("New names: " + students1);
+        console.log(updateItem(students1, "Izik", "Daria"));
+        console.log("No name changed: " + students1);
+
+    </script>
+</body>
+
+</html>

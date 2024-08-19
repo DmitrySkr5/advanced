@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literal Object</title>
+</head>
+
+<body>
+    <script>
+        // מהו אובייקט
+        let product = {
+            id: 1,
+            name: "Iphone",
+            price: 5000,
+            category: "Smartphones"
+        };
+        console.log(product);
+        console.log(product.name);
+
+        let employee = {
+            id: "256945633",
+            name: "Avi Bitter",
+            department: "IT",
+            email: "avi@gmail.com",
+            company: "HackerU"
+        }
+        console.log(employee);
+
+        // add key/property
+        employee.age = 54;
+        console.log(employee);
+
+        // update property
+        employee.department = "R&D";
+        console.log(employee.department);
+
+        // detele property
+        delete employee.age;
+        console.log(employee);
+
+        // array in object
+        let company = {
+            id: 15263,
+            name: "Margol ltd",
+            departments: ["HR", "IT", "Software", "Admin"]
+        }
+        console.log(company.departments);
+        console.log(company.departments[2]);
+        for (let i = 0; i < company.departments.length; i++) {
+            console.log(company.departments[i]);
+        }
+
+        // object in array in object
+        // מאפיין שהוא בעצמו מערך אובייקטים
+        let data = {
+            company: "Hackeru",
+            users: [
+                { name: "Yuval Levy", age: 26 },
+                { name: "Arad Cohen", age: 41 },
+                { name: "Polina Biton", age: 32 }
+            ],
+
+        };
+
+        console.log(data.users[1].name);
+        data.users.push({name: "Skripnik Dima", age: 34});
+        console.log(data.users);
+
+        // method inside object
+        let user = {
+            name: "Yoav",
+            email: "yoav@mail.com",
+            loggedIn: false,
+            password: "12345678",
+            getDetails: function () {
+                console.log(`Name: ${this.name}, ${this.email}`);
+            },
+        };
+
+        user.getDetails();
+
+        let product1 = {
+            id: 15,
+            price: 25.5,
+            title: "DiskOnKey",
+            set: function(propertyName, value) {
+                this[propertyName] = value;
+                return this;
+            },
+            get: function (propertyName) {
+                return this[propertyName];
+            },
+        };
+
+        let prod1 = product1.set("title", "Memory Card").get("title");
+        let prod2 = product1.set("price", 45).get("price");
+        let prod3 = product1.get("id");
+        console.log(prod1);
+        console.log(prod2);
+        console.log(prod3);
+    </script>
+</body>
+
+</html>

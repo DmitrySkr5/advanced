@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+
+<body>
+    <script>
+        // OOP - object oriented programming
+        // תכנות מונחה עצמים
+        // עצם == אובייקט שנוצר ממחלקה
+        // objects
+        // 1. literal object
+        // 2. instance == object related to class
+        // מחלקה היא תבנית ליצירת אובייקטים
+
+        // let product = [
+        // {name: "Laptop", price: 25, id: 2},
+        // {name: "Laptop", price: 25, id: 2},
+        // {name: "Laptop", price: 25, id: 2},
+        // {name: "Laptop", price: 25, id: 2},
+        // {name: "Laptop", price: 25, id: 2}
+        // ];
+
+        //js vanilla es5 - 2009
+
+        function Student(_id, _name) {
+            this.id = _id;
+            this.name = _name;
+            this.getDetails = function () {
+                console.log(`The Id is ${this.id}. The name is ${this.name}`);
+            }
+        }
+
+
+        let s1 = new Student(1, "Dima");
+        let s2 = new Student(2, "Moshe");
+        console.log(s1);
+        console.log(s1.name);
+        console.log(s2);
+
+        let students = [new Student(1, "Dima"), new Student(2, "Sara")];
+        console.log(students);
+
+        for (let i = 0; i < students.length; i++) {
+            students[i].getDetails();
+
+        }
+
+        let Person = function (name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        let p1 = new Person("Avi", 51);
+        console.log(p1);
+    </script>
+</body>
+
+</html>

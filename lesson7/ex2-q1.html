@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+
+<body>
+    <script>
+        class Vehicle {
+            name;
+            type;
+            license_plate;
+            constructor(name, type, license_plate) {
+                this.name = name;
+                this.type = type;
+                this.license_plate = license_plate;
+            }
+            get(prop) {
+                return this[prop];
+            }
+            set(prop, newValue) {
+                this[prop] = newValue;
+            }
+            getDetails() {
+                console.log(`Name: ${this.name}, Type: ${this.type}, License Plate ${this.license_plate}`);
+            }
+        };
+
+        console.log(new Vehicle("Volvo", "Sedan", 1552025));
+
+        class Car extends Vehicle {
+            constructor(name, type, license_plate, no_seats) {
+                super(name, type, license_plate)
+                this.no_seats = no_seats;
+            }
+            get(prop) {
+                return this[prop];
+            }
+            set(prop, newValue) {
+                this[prop] = newValue;
+            }
+        }
+
+        class Motorcycle extends Vehicle {
+            constructor(name, type, license_plate, helmet_company) {
+                super(name, type, license_plate)
+                this.helmet_company = helmet_company;
+            }
+            get(prop) {
+                return this[prop];
+            }
+            set(prop, newValue) {
+                this[prop] = newValue;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

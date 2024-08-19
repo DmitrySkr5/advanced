@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES 6</title>
+</head>
+
+<body>
+    <script>
+        // es6 - js 2015
+
+        let courses = [
+            { id: 1, name: "JS", amount: 25 },
+            { id: 2, name: "TS", amount: 35 },
+            { id: 3, name: "React", amount: 30 },
+        ];
+
+        //הדפסת שמות הקורסים לקונסול
+
+        console.log("for loop");
+        for (let i = 0; i < courses.length; i++) {
+            console.log(courses[i].name);
+
+        }
+        console.log("for in loop");
+        // לולאה שרצה על אינדקסים
+        // הנסיכה
+        for (let i in courses) {
+            console.log(courses[i].name);
+        }
+
+        console.log("for of loop");
+        // המלכה
+        for (let course of courses) {
+            console.log(course.name);
+        }
+
+        console.log();
+        // object destructuring
+        // פירוק האובייקט לרכיביו
+        let data = {
+            company: "Hackeru",
+            users: [
+                { username: "ninas", password: "123" },
+                { username: "dimas", password: "abc" },
+            ],
+            numOfCourses: 50,
+        };
+
+        // console.log(data.users[1].username);
+        let { users, company } = data;
+        console.log(users[0].username);
+        console.log();
+        console.log(company);
+
+        console.log();
+        // array destructuring
+        // פירוק מערך לרכיביו
+        let arr = [1, "DS", true];
+        let [id, name] = arr;
+        console.log(name);
+
+        console.log();
+        // function default params
+        function myName(name1= "DS", name2 = "SKR") {
+            return `Hey! my name is ${name1} ${name2}`;
+        }
+        console.log(myName());
+        console.log(myName("NG"));
+        console.log(myName(undefined, "GS"));
+
+        // arrow function
+        // פונקצית חץ
+        // פונקציה אנונימית
+        // () => {}
+
+        // function declaration
+        function init() {
+            return "Hello";
+        }
+
+        // function expression
+        let init2 = function () {
+            return "Hello2";
+        }
+
+        let init3 = () => "Hello3";
+        console.log(init3());
+
+        let pow = (x, y) => x ** y;
+        let pow2 = (x, y) => {
+            return x ** y;
+        }
+        console.log(pow(2, 3));
+
+    </script>
+</body>
+
+</html>

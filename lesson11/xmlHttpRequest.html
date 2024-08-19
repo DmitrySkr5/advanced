@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body>
+    <script>
+        // XMLHttpRequest
+        // מחלקה מובנית בג'אווה סקריפט שבאמצעותה ניתן ליצור בקשות ברשת
+        //  בקשה לקבלת כל הפוסטים מ JSONplaceholder
+
+
+        // יצירת אובייקט מסוג בקשה
+        let req1 = new XMLHttpRequest();
+
+        // להגדיר מה קורה כאשר בקשה מסתיימת
+        req1.onreadystatechange = function () {
+            // לבדוק האם הבקשה הסתיימה
+            if (req1.readyState == XMLHttpRequest.DONE) {
+                // לבדוק באיזה סטטוס הבקשה הסתיימה
+                if (req1.status == 200) {
+                    console.log(JSON.parse(req1.responseText));
+                }
+                // מה לעשות עם המידע שהגיע
+            }
+
+        }
+
+        // פתיחת בקשה
+        req1.open("GET", "https://jsonplaceholder.typicode.com/posts/26");
+
+        // שליחת בקשה
+        req1.send();
+
+        // post request in XMLHttpRequest
+
+        /* example of post request in XMLHttpRequest */
+        // body
+        let newPost = {
+            userId: 5,
+            title: "Welcome to Hackeru",
+            body: "full stack course",
+        };
+        newPost = JSON.stringify(newPost);
+        // create request
+        let req2 = new XMLHttpRequest();
+        // set onreadystatechange
+
+        // open request
+        req2.open("POST", "https://jsonplaceholder.typicode.com/posts");
+        // setHeader
+        req2.setRequestHeader("Content-Type", "application/json")
+
+        // send request
+        req2.send(newPost);
+        // set onreadystatechange
+        req2.onreadystatechange = function () {
+            if (req2.readyState == XMLHttpRequest.DONE) {
+                if (req2.status == 201) {
+                    console.log(req2.responseText);
+                }
+            }
+        };
+
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = x => {
+            let result = x.target;
+
+            if (result.readyState == 4 && result.status == 200) {
+                console.log(result.responseText);
+
+            }
+
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // בקשה לקבלת פרטי כל המשתמשים והדפסת שמותהים לקונסול
+
+        axios.get("https://jsonplaceholder.typicode.com/users")
+        .then((users) => console.log(users.data))
+        .catch((error) => console.log(error));
+
+        async function changeUser(id) {
+            try {
+            let result = await axios
+            .put("https://jsonplaceholder.typicode.com/users/8", { name: "Dima", email: "dima@mail.com" });
+            console.log(result);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        changeUser(8);
+
+        
+    </script>
+</body>
+</html>

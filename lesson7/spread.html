@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread</title>
+</head>
+<body>
+    <script>
+        let num1 = [1, 2, 3], num2 = [4, 5];
+        // [1, 2, 3, 4, 5]
+        let num3 = [...num1, ...num2];
+        console.log(num3);
+
+        // יצירת עותקים
+        
+
+        // simple copy
+        // לא עותק אמיתי
+        // משנה את המקור
+        let user = {
+            id: 1,
+            name: "Jack"
+        };
+
+        let user2 = user;
+        user2.id = 2;
+        console.log(user);
+        console.log(user2);
+        let user3 = {...user};
+        user3.id = 5;
+        console.log(user);
+        console.log(user3);
+
+        // shallow copy
+        // עותק חלקי
+        // אם יש אובייקט או מערך פנימי הוא עדיין מקושר למקור
+        let person = {
+            name: "Dani",
+            address: {
+                city: "Tel-Aviv",
+                country: "Israel"
+            },
+        };
+
+        let person2 = {...person}; 
+        person2.name = "Dimas";
+        person2.address.city = "Ashdod";
+        console.log(person);
+        console.log(person2);
+
+        // deep copy
+        // עותק אמיתי
+        let person3 = {...person, address: {...person.address}};
+        person3.city = "TLV";
+        console.log(person);
+        console.log(person3);
+    </script>
+</body>
+</html>

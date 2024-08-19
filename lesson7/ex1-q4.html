@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 4</title>
+</head>
+<body>
+    <script>
+        let user = {
+            id: 5,
+            fullName: "Dima Skr",
+            age: 30,
+            phoneNumber: "0501234567",
+            address: {
+                city: "Ashdod",
+                street: "Shomron",
+                homeNumber: 5
+            }
+        };
+
+        let shallowUser = {...user};
+        console.log(shallowUser);
+
+        let deepUser = {...user, address: {...user.address}};
+        console.log(deepUser);
+
+    </script>
+</body>
+</html>

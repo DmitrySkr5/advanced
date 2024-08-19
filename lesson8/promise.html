@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+
+        // callback
+        // A
+        let printFirst = (callBackFunc) => {
+            setTimeout(() => {
+                console.log("I'm First");
+                callBackFunc();
+            }, 3000);
+        };
+
+        // B
+        let printLast = () => {
+            console.log("I'm last");
+        }
+
+        printFirst(printLast);
+
+
+        // promise
+        // מחלקה מובנית ב JS
+        // שמאפשרת לנו להבטיח שתהליך ראשון יסתיים לפני הפעלת התהליך השני
+
+        let prom = new Promise((resolve, reject) => {
+            // A
+            setTimeout(() => {
+                console.log("Promise ->");
+                console.log("I'm First");
+                resolve();
+            }, 3000);
+        });
+        // B
+        prom.then(() => {
+            console.log("I'm Last");
+        });
+
+
+        let p2 = new Promise((res, rej) => {
+            let num = 1;
+            if (num > 2) {
+                res("Bigger Then 2");
+            } else {
+                rej(new Error("Lower or Equal to 2"));
+            }
+        });
+        p2.then((data) => {
+            console.log(data);
+        }).catch((error) => {
+            console.log(error);
+        });
+
+        // promise all
+        let a = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('A proccess begin');
+                resolve("A")
+            }, 2000);
+        });
+        let b = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('B proccess begin');
+                resolve("B")
+            }, 3000);
+        });
+        Promise.all([a, b]).then((dataArr) => {
+            console.log(dataArr);
+        });
+    </script>
+</body>
+
+</html>

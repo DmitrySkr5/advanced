@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Exercise 9 Question 3</title>
+</head>
+
+<body>
+    <div class="container" id="container"></div>
+    <script>      
+        let food = [
+            { name: "Salad", category: "First", price: 37 },
+            { name: "Hamburger M", category: "Main", price: 52 },
+            { name: "Hamburger L", category: "Main", price: 62 },
+            { name: "Pizza L", category: "Main", price: 45 },
+            { name: "Pizza XL", category: "Main", price: 55 },
+            { name: "Fries", category: "First", price: 26 },
+            { name: "Soup", category: "First", price: 30 },
+            { name: "Steak M", category: "Main", price: 84 },
+            {
+                name: "Shrimps", category: "First", price: 77
+            },
+        ];
+
+        document.querySelector("#container").innerHTML = `<div class="row" id="cardsRow"></div>`;
+        
+        for (let i = 0; i < food.length; i++) {
+            document.querySelector("#cardsRow").innerHTML += `
+            <div class="col-sm-4 mt-3">
+                <div class="card text-center" style="width: 15rem;">
+                    <div class="card-header text-info">
+                        <h4>${food[i].name}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${food[i].category}</h5>
+                            <p class="card-text text-success">${food[i].price}</p>
+                            </div>
+                        </div>      
+                    </div>        
+                </div>`;
+        }
+
+        console.log(food.length);
+    </script>
+</body>
+
+</html>

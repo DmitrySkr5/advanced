@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <script>
+        let prices = [50, 21, 41, 78, 52];
+        console.log(prices[2]);
+        prices[3] = 15;
+        console.log(prices);
+        prices.push(35);
+        console.log(prices);
+        prices.pop();
+        console.log(prices);
+        prices.unshift(100);
+        console.log(prices);
+        prices.shift();
+        console.log(prices);
+        prices.splice(2, 2, 17);
+        console.log(prices);
+        console.log(prices.indexOf(21));
+        console.log(prices.indexOf(101));
+
+        // map
+        // מטרתה לעבור על איברי המערך ולבצע בהם מניפולציה כלשהי
+        let numbers = [10, 20, 30];
+        numbers = numbers.map(function (number) {
+            return number / 2;
+        });
+        console.log(numbers);
+
+        let cities = [" london", "paris ", "akko "];
+        console.log(cities);
+        cities = cities.map(function (city) {
+            return city.trim();
+        });
+        console.log(cities);
+
+        // filter
+        // מאפשרת לבצע סינון כלשהו של אברי המערך
+        let citiesWithA = cities.filter(function (city) {
+            return city.includes("a");
+        });
+        console.log(citiesWithA);
+
+        // find
+        // מתודה המחזירה את האיבר הראשון שעמד בתנאי כלשהו
+        let findCity = cities.find(function (city) {
+            return city.length < 6;
+        });
+        console.log(findCity);
+
+        // reduce
+        // מאפשרת לבצע צמצום של איברי המערך לכדי פריט מידע יחיד
+        let productsPrices = [40, 12, 32];
+        let sum = productsPrices.reduce(function (total, price) {
+            return total + price;
+        });
+        console.log(sum);
+
+        // sort
+        //מיון מערך לפי ערכיו
+        let names = ["Shir", "Yoav", "Igal", "Sapir"];
+        names.sort();
+        console.log(names);
+        names.reverse();
+        console.log(names);
+
+        let ages = [11, 51, 24, 73, 100];
+        ages.sort();
+        console.log(ages);
+
+        
+    </script>
+</body>
+
+</html>

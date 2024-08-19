@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+
+<body>
+    <script>
+        let usersJSON = `[
+        {
+            "userId": 1,
+            "firstName": "Krish",
+            "lastName": "Lee",
+            "phoneNumber": "123456",
+            "emailAddress": "krish.lee@learningcontainer.com"
+        },
+        {
+            "userId": 2,
+            "firstName": "racks",
+            "lastName": "jacson",
+            "phoneNumber": "123456",
+            "emailAddress": "racks.jacson@learningcontainer.com"
+        },
+        {
+            "userId": 3,
+            "firstName": "denial",
+            "lastName": "roast",
+            "phoneNumber": "33333333",
+            "emailAddress": "denial.roast@learningcontainer.com"
+        },
+        {
+            "userId": 4,
+            "firstName": "devid",
+            "lastName": "neo",
+            "phoneNumber": "222222222",
+            "emailAddress": "devid.neo@learningcontainer.com"
+        },
+        {
+            "userId": 5,
+            "firstName": "jone",
+            "lastName": "mac",
+            "phoneNumber": "111111111",
+            "emailAddress": "jone.mac@learningcontainer.com"
+        }
+        ]`;
+        
+        let convertJSON = (json) => JSON.parse(json);
+        console.log(convertJSON(usersJSON));
+
+        let users = `[
+        {
+            "userId": 1,
+            "firstName": "Kuku",
+            "lastName": "Kaka",
+            "phoneNumber": "123456",
+            "emailAddress": "krish.lee@learningcontainer.com"
+        },
+        {
+            "userId": 2,
+            "firstName": "Get",
+            "lastName": "Taxi",
+            "phoneNumber": "123456",
+            "emailAddress": "get.taxi@learningcontainer.com"
+        },
+        {
+            "userId": 3,
+            "firstName": "Bat",
+            "lastName": "Yaana",
+            "phoneNumber": "33333333",
+            "emailAddress": "Bat.YAana@learningcontainer.com"
+        },
+        {
+            "userId": 4,
+            "firstName": "Nik",
+            "lastName": "Niga",
+            "phoneNumber": "222222222",
+            "emailAddress": "Nik.niga@learningcontainer.com"
+        },
+        {
+            "userId": 5,
+            "firstName": "Avi",
+            "lastName": "Bul",
+            "phoneNumber": "111111111",
+            "emailAddress": "avi.bul@learningcontainer.com"
+        }
+        ]`;
+
+        console.log(convertJSON(users));
+
+        let findUser = (users, userId = 1) => ``;
+        console.log(findUser(users, 5));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+
+<body>
+    <script>
+        let numArr = [23, 26, 55, 63, 21, 5, 7, 32];
+        
+        let findMin = (numbers = [5, 6, 3, 2]) => {
+            let minNum = numbers[0];
+            for(let number of numbers) {
+                if(number < minNum) minNum = number;
+            }
+            return minNum;
+        };
+        console.log(findMin(numArr));
+        console.log(findMin());
+
+    </script>
+</body>
+
+</html>

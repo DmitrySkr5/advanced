@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <script>
+        // let promise = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         let randNum = Math.random();
+        //         console.log(randNum);
+        //         randNum > 0.5
+        //             ? resolve("Above 0.5!")
+        //             : reject("Under or equal to 0.5!");
+        //     }, 2000);
+        // });
+        // promise
+        //     .then((data) => console.log(data))
+        //     .catch((error) => console.log(error));
+
+
+        // async await
+        // שיטה חדשה יותר לטיפול בפרומיסים
+        // מחייבת שימוש והגדרת פונקציות
+        // נוח יותר במידה ויש כמה פרומיסים בזה אחר זה שממתינים לביצועם
+        // try catch חובה
+        function func(num) {
+            return new Promise((res, rej) => {
+                num > 10 ? res("Above") : rej("Below or Equal")
+            });
+        }
+
+        async function checkNum() {
+            try {
+                // A
+                let result = await func(12);
+                console.log("Result: " + result);
+
+                // B
+                let result2 = await func(5);
+                console.log("Result2: " + result2);
+            } catch (error) {
+                console.log("Error: " + error);
+            }
+        }
+
+        checkNum();
+
+
+        // ex3-q2
+        function calcGrade() {
+            return new Promise((resolve, reject) => {
+                let num = Math.floor(Math.random() * 100);
+                console.log(num);
+                num > 55 ? resolve("Success!") : reject("Failed!");
+            });
+        }
+        async function callPromise() {
+            try {
+                let result = await calcGrade();
+                console.log(result);
+            } catch (error) {
+                console.log(new Error(error));
+            }
+        }
+        callPromise();
+
+        // ex3-q3
+        function rollCubes() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let cube1 = Math.ceil(Math.random() * 6);
+                    let cube2 = Math.ceil(Math.random() * 6);
+                    cube1 == cube2
+                        ? resolve(`Win. Cubes are ${cube1}`)
+                        : reject(`Lose. Cubes are ${cube1}, ${cube2}`);
+                }, 3000);
+            });
+        }
+        async function game() {
+            try {
+                let result = await rollCubes();
+                console.log(result);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        game();
+
+
+        // כתבו פונקציה שמקבלת מחרוזת ומחזירה פרומיס שבודק האם המחרוזת מכילה את האות e
+        // במידה וכן יש להחזיר תגובה מתאימה ב-resove
+        // במידה ולא יש להחזיר תגובה מתאימה ב-reject
+        // יש להששתמש בasync await
+
+        function includeE(str) {
+
+            return new Promise((resolve, reject) => {
+                if (str.includes("e")) resolve(`The word "${str}" contains the letter 'e'`)
+                else reject(`The word "${str}" not includes letter 'e'`)
+            });
+        }
+
+        async function mainFunc() {
+            try {
+                let res1 = await includeE("daniel");
+                console.log(res1);
+                let res2 = await includeE("dima");
+                console.log(res2);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        mainFunc();
+    </script>
+
+</body>
+
+</html>

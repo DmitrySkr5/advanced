@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Exercise 4</title>
+</head>
+
+<body>
+    <div class="container" id="containerId">
+        <table class="table" id="tableId">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>category</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+       let products = [
+            { id: 2536, name: "Sony Professional 32GB XQD", price: 710, category: "Storage", description: "The new XQD cards achieve Max read" },
+            { id: 2537, name: "Lenovo Legion 15.6 Gaming", price: 3500, category: "Laptops", description: "Lenovo Legion 5 pairs unparalleled flexibility with incredible power,offering a plethora of performance options for any gamer in a clean and minimalist design" },
+            { id: 2538, name: "ASUS ROG GL552VW-DH71 15.6", price: 4450, category: "Laptops", description: "Offering a formidable core experience for serious gaming and multitasking on Windows 10 Pro" },
+            { id: 2539, name: "Razer BlackWidow V3 Chroma RGB", price: 5250, category: "Keyboards", description: "Experience one of the most iconic mechanical gaming keyboards with the Razer BlackWidow" },
+            { id: 2540, name: "Microsoft Surface Pro 7.0", price: 4890, category: "Laptops", description: "New Surface Pro 7 adapts to the way you work with laptop - to - tablet versatility" },
+        ];
+
+        document.querySelector("#tableId").innerHTML += `<tbody"></tbody>`;
+
+        function addProducts() {
+            for (let i = 0; i < products.length; i++) {
+                document.querySelector("#tableId").innerHTML += `
+                <tr>
+                <td>${products[i].id}</td>
+                <td>${products[i].name}</td>
+                <td>${products[i].price}</td>
+                <td>${products[i].category}</td>
+                <td>${products[i].description}</td>
+            </tr>
+                `;
+
+            }
+        }
+        addProducts();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = [6, 7, 8, 9, 10];
+        let arr3 = [11, 12, 13, 14, 15];
+
+        let uniteArrs = (arr1, arr2, arr3) => {
+            let arr4 = [...arr1, ...arr2, ...arr3];
+            let avg = 0;
+            for (let i = 0; i < arr4.length; i++) {
+                avg += arr4[i];
+            }
+            avg /= arr4.length;
+            console.log(avg);
+            let newArr = [];
+            for(let number in arr4) {
+                
+                if(number > avg) {
+                    newArr.push(number);
+                }
+            }
+            return newArr;
+        };
+
+        console.log(uniteArrs(arr1, arr2, arr3));
+    </script>
+</body>
+
+</html>

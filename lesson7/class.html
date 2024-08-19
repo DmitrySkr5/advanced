@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+
+<body>
+    <script>
+
+        // 2009 es5
+        function Person(id, name) {
+            this.id = id;
+            this.name = name;
+            this.getDetails = function () {
+                console.log(`Id: ${this.id}, Name: ${this.name}`);
+            };
+        }
+
+
+        // 2015 es6
+        class Person2 {
+            id;
+            name;
+            constructor(id, name) {
+                this.id = id;
+                this.name = name;
+            }
+            getDetails() {
+                console.log(`Id: ${this.id}, Name: ${this.name}`);
+            }
+            get(prop) {
+                return this[prop];
+            }
+            set(prop, newValue) {
+                this[prop] = newValue;
+            }
+        };
+
+        let person1 = new Person2(1, "Divan");
+        console.log(person1);
+        person1.getDetails();
+        console.log(person1.get("name"));
+        person1.set("id", 25);
+        console.log(person1);
+
+        // מתודה סטטית
+        // מתודה שניתן לקרוא לה מבלי ליצור מופע (אובייקט מסוג מחלקה כלשהי)
+
+        class Circle {
+            static calcArea(r) {
+                return Math.PI * r ** 2;
+                //return Math.PI * Math.pow(r, 2);
+            };
+        }
+
+        let result = Circle.calcArea(5);
+        console.log(result);
+
+        // private
+        class User {
+            #password;
+            peoductId;
+            name;
+            password;
+            constructor(id, name, password) {
+                this.id = id;
+                this.name = name;
+                this.#password = password;
+            }
+            getDetails() {
+                console.log(`Id: ${this.id}, Name: ${this.name}`);
+            }
+            getPassword() {
+                return this.#password;
+            }
+        }
+
+        let u = new User(6, "Dima", "159753");
+        // console.log("Password: " + u.password); //undefined
+        console.log(u.getPassword());
+        u.getDetails();
+
+        // inheritance
+        // הורשה
+        // es5
+        function Animal(name) {
+            this.name = name;
+        }
+        function Dog(name, age) {
+            Animal.call(this, name);
+            this.age = age;
+        }
+        // es6
+        class Father {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        class Son extends Father {
+            constructor(name, age, game) {
+                super(name, age); // חייבת להיות השורה הראשונה בבנאי של מחלקת בן
+                this.game = game;
+            }
+        }
+
+        let s = new Son("Bay", 33, "FIFA");
+        console.log(s);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason</title>
+</head>
+<body>
+    <script>
+        // json
+        // js object notation
+        
+        // literal object
+        let user = {
+            id: "02",
+            email: "user@mail.com",
+            password: "123456789",
+            loggedIn: true,
+            categories: ["Full Stack", "Mobile"]
+        };
+
+        // json
+        // value = number, string, boolean, object, array, null
+        let jsonUser = `{
+        "id": "02",
+        "age": 25,
+        "email": "user2@mail.com",
+        "password": "123456789",
+        "loggedIn": true,
+        "address": {
+        "city": "Ashdod",
+        "street": "Rehov 5"
+        },
+        "categories": ["Full Stack", "Mobile"]
+        }`;
+
+        // json to js
+        console.log(jsonUser);
+        console.log(JSON.parse(jsonUser));
+        console.log();
+        // js to json
+        console.log(user);
+        console.log(JSON.stringify(user));
+
+        
+    </script>
+</body>
+</html>

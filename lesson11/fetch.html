@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <script>
+        // פונקציה ליצירת בקשות
+        // החל מגרסה es6
+        // מאפשרת לשלוח בקשות ולטפל בהן באמצעות פרומיסים
+        // בקשה להדפסת כותרות המשימות לביצוע שטרם התבצעו
+        console.log("Tasks not completed");
+        
+        fetch("https://jsonplaceholder.typicode.com/todos?completed=false", {
+            method: "GET",
+        })
+            .then((response) => response.json())
+            .then((todos) => {
+                for (let todo of todos) {
+                    console.log(todo.title);
+                }
+            })
+            .catch((err) => console.log(err));
+
+        /* post example in fetch */
+        let newToDo = {
+            userId: 8,
+            title: "prepare the shalter",
+            completed: true,
+        };
+
+        fetch("https://jsonplaceholder.typicode.com/todos", {
+            method: "POST",
+            body: JSON.stringify(newToDo),
+            headers: { "Content-Type": "application/json" },
+        })
+            .then((response) => response.json())
+            .then((newTodo) => console.log(newTodo))
+            .catch((err) => console.log(err));
+
+        // fetch with async await
+        //get all completed todos
+        async function getCompletedTodos() {
+            try {
+                let response = await fetch("https://jsonplaceholder.typicode.com/todos?completed=true");
+                let completedTodos = await response.json();
+                console.log(completedTodos);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getCompletedTodos();
+    </script>
+</body>
+
+</html>

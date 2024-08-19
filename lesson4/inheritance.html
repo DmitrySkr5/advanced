@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <script>
+        // מחלקת האם
+        function Person(id, name, age) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.sleep = function () {
+                console.log(`Good night ${this.name}`);
+            };
+        }
+
+        // מחלקת הבן 
+        function Employee(id, name, age, department) {
+            // קריאה לבנאי של Person
+            // עם הנתונים שנשלחו ל Employee
+            Person.call(this, id, name, age);
+            this.department = department;
+            this.work = function () {
+                console.log(`Go back to work in ${this.department}`);
+            };
+        }
+
+        let p1 = new Person(1, "Miri", 50);
+        let p2 = new Person(2, "Mike", 44);
+        let e1 = new Employee(3, "Yuki", 36, "HR");
+        console.log(p1);
+        console.log(e1);
+        p1.sleep();
+        p2.sleep();
+        e1.sleep();
+        // p1.work(); //Error
+        e1.work();
+
+        function Animal(name) {
+            this.name = name;
+            this.sound = function () {
+                console.log("General sound");
+            };
+        }
+
+        function Cat(name, food) {
+            Animal.call(this, name);
+            this.food = food;
+            // overriding
+            this.sound = function() {
+                console.log("Meow meow");
+            }
+        }
+
+        let a1 = new Animal("Kitty");
+        let c1 = new Cat("Mitzi", "Fish");
+
+        a1.sound();
+        c1.sound();
+
+        let arr = [a1, c1];
+        for (let i = 0; i < arr.length; i++) {
+            arr[i].sound();
+            
+        }
+    </script>
+</body>
+</html>
